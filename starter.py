@@ -3,7 +3,7 @@
 import sys
 import os
 
-lang = "fr"
+lang = "en"
 
 _messages = {
     "input": {

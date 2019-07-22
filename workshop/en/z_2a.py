@@ -23,7 +23,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
  
-from workshop.fr.ab import *
+import workshop._.z_2a as workshop
+import workshop.en._ as _
+from workshop.en.turtle import *
 
 def go():
-    main()
+  workshop.main(lambda: None, _.defaultTitle)

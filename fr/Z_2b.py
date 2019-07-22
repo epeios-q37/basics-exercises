@@ -1,0 +1,27 @@
+# coding: utf-8
+
+import sys
+sys.path.append(".")
+from workshop.fr.z_2b import *
+
+
+import math
+
+
+def maFonction(polygones, segments):
+    polygones = int(polygones)
+    segments = int(segments)
+    taille = 140 * math.sin(math.pi/segments)
+    T = 0
+    pasPolygone = 360/polygones
+    pasSegment = 360/segments
+    for y in range(0, polygones):
+        fixeCouleurTSL(T, 100, 50)
+        T += pasPolygone
+        for x in range(0, segments):
+            avance(taille)
+            tourneDroite(pasSegment)
+        tourneGauche(pasPolygone)
+
+
+go(maFonction)

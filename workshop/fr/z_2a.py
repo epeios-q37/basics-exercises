@@ -21,23 +21,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- """
+"""
  
-import workshop._.c as workshop
-import workshop.de._ as _
+import workshop._.z_2a as workshop
+import workshop.fr._ as _
+from workshop.fr.turtle import *
 
-class _Core:
-    i18n = {
-      "NameIsMandatory": "Sie müssen einen Name eingeben !"
-    }
-    bodyI18n = {
-      "NameToDisplay": "Anzeigename"
-    }
-
-
-def anzeige(text):
-  workshop.display(text)
-
-
-def go(function):
-  workshop.main(function, _Core, _.defaultTitle )
+def go():
+  workshop.main(lambda: None, _.defaultTitle)

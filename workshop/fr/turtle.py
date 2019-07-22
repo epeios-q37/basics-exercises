@@ -21,9 +21,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- """
+"""
  
-from workshop.de.ab import *
+import workshop._.turtle as turtle
 
-def go():
-    main()
+def avance(distance):
+  turtle.forward(distance)
+
+def tourneDroite(angle):
+  turtle.right(angle)
+
+def tourneGauche(angle):
+  turtle.left(angle)
+
+def fixeCouleurRVB(r,v,b):
+  turtle.setColorRGB(r,v,b)
+
+def fixeCouleurTSL(t,s,l):
+  turtle.setColorHSL(t,s,l)

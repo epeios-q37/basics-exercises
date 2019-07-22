@@ -23,7 +23,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
  
-from workshop.fr.ab import *
+import workshop._.z_2b as workshop
+import workshop.en._ as _
+from workshop.en.turtle import *
 
-def go():
-    main()
+class _Core:
+    i18n = {
+      "AmountOfPolygons": "Amount of polygons ",
+      "AmountOfSegments": "Amount of segments ",
+      "Draw": "Draw"
+    }
+
+def go(function):
+  workshop.main(_Core, function, _.defaultTitle)

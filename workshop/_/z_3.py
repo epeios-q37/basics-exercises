@@ -21,30 +21,53 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- """
- 
-import math
+"""
+
 import workshop._._ as _
-from .turtle import *
 
 _dir = "z_3"
 
-_FUNCTION = 'function'
+A_CONNECT = 'connect'
+A_SUBMIT = 'submit'
+A_RESTART = 'restart'
 
-def _acConnect(core,dom,id):
-  dom.setLayout("",_.readBody(_dir, core.i18n))
+F_FACE = "Face"
+F_HEAD = "Head"
+F_BODY = "Body"
+F_LEFT_ARM = "LeftArm"
+F_RIGHT_ARM = "RightArm"
+F_LEFT_LEG = "LeftLeg"
+F_RIGHT_LEG = "RightLeg"
 
-def _acDraw(core,dom):
-  (polygons, segments) = dom.getContents(("polygons","segments")).values()
-  _.recall(_FUNCTION)(polygons, segments)
-  draw(dom)
+_CALLBACKS = "callbacks"
 
 
-def main(callback,function,title):
-  _.store(_FUNCTION,function)
-  _.main(_dir, callback, {
-      "" : _acConnect,
-      "Draw" : _acDraw,
-    }, title )
+def _acConnect(core, dom, id):
+    _.recall(_CALLBACKS)[A_CONNECT](core.userObject)
 
-initTurtle()
+
+def _acSubmit(core, dom, id):
+    dom.addClass(id, "chosen")
+
+    _.recall(_CALLBACKS)[A_SUBMIT](core.userObject, id.lower())
+
+
+def _acRestart(core, dom):
+    _.recall(_CALLBACKS)[A_RESTART](core.userObject)
+
+
+def redraw():
+    _.dom().setLayout("", _.readBody(_dir, _.core().i18n))
+
+
+def drawFigure(part):
+    _.dom().removeClass(part, "hidden")
+
+
+def main(callback, callbacks, title, userCallback):
+    _.store(_CALLBACKS, callbacks),
+    _.main(_dir, callback, {
+        "": _acConnect,
+        "Submit": _acSubmit,
+        "Restart": _acRestart
+    }, title, userCallback)

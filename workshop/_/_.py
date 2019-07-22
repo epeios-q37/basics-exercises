@@ -21,20 +21,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- """
+"""
  
 import os
 import threading
 import sys
 import inspect
 
-import signal
-
-def signal_handler(sig, frame):
-  sys.exit(0)
-
-
-signal.signal(signal.SIGINT, signal_handler)
+_DEBUG = False
 
 if ('HOME' in os.environ) and (os.environ['HOME'] == '/home/runner'):
   os.environ["ATK"] = "REPLit"
@@ -61,14 +55,6 @@ _data['global'] = {}
 def _threadId():
   return threading.currentThread().ident
 
-# Does not work as static member of '_Core' with Python 2!
-_userCallback = None
-
-class _Core:
-  def __init__(self):
-    globals()['_data'][_threadId()] = {}
-    self.userObject = _userCallback()
-
 def _store(set,key,value):
   globals()['_data'][set][key] = value
 
@@ -87,6 +73,21 @@ def recall(key):
   except KeyError:
     return _recall('global',key)
 
+def dom():
+  return recall('dom')
+
+
+def core():
+  return recall('core')
+
+_userCallback = None
+
+class Core:
+  def __init__(self, dom):
+    store('dom',dom)
+    store('core',self)
+    globals()['_data'][_threadId()] = {}
+    self.userObject = _userCallback() if _userCallback else None
 
 def _read(path):
   return open(path).read()
@@ -144,16 +145,19 @@ def _call(func, userObject, dom, id, action):
 		return func(*args)
 	except Exception as e:
 		dom.alert("PYTHON ERROR: \n\n" + str(e))
+		if _DEBUG:
+		  raise e
 
 
 def _patch(userCallbacks):
   callbacks = {}
 
   for action in userCallbacks:
-    callbacks[action] = lambda core,dom,id,action: _call(userCallbacks[action],core.userObject,dom,id,action)
+    callbacks[action] = lambda core, dom, id, action: _call(userCallbacks[action], core, dom, id, action)
 
   return callbacks
 
-def main(path,callback,callbacks,title = None):
-  globals()['_userCallback'] = callback
-  Atlas.launch( _patch(callbacks), _Core, _readHead(path, title)) 
+
+def main(path, callback, callbacks, title, userCallback = None):
+  globals()['_userCallback'] = userCallback
+  Atlas.launch( _patch(callbacks), callback, _readHead(path, title)) 

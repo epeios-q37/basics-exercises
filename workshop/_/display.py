@@ -23,7 +23,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
  
-from workshop.fr.ab import *
+import workshop._._ as _
 
-def go():
-    main()
+_OUTPUT = "output"
+
+def _dom():
+  return _.dom()
+
+def clear():
+  _dom().setLayout(_OUTPUT, "<span/>")
+
+def display(text):
+  output = _.Atlas.createHTML()
+  output.putTagAndValue("h1", text)
+  _dom().appendLayout(_OUTPUT, output)
+
+def clearAndDisplay(text):
+  output = _.Atlas.createHTML()
+  output.putTagAndValue("h1", text)
+  _dom().setLayout(_OUTPUT, output)
+
+def alert(text):
+  _dom().alert(text)
+
+def confirm(text):
+  return _dom().confirm(text)
+

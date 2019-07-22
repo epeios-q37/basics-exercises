@@ -21,8 +21,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- """
+"""
  
-import workshop._._ as _
+import workshop._.z_2b as workshop
+import workshop.fr._ as _
+from workshop.fr.turtle import *
 
-defaultTitle = _.titles["de"]
+class _Core:
+    i18n = {
+      "AmountOfPolygons": "Nombre de polygones ",
+      "AmountOfSegments": "Nombre de segments ",
+      "Draw": "Afficher"
+    }
+
+def go(function):
+  workshop.main(_Core, function, _.defaultTitle)

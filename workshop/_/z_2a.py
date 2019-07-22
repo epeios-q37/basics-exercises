@@ -21,25 +21,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- """
+"""
  
-import workshop._.z_2 as workshop
-import workshop.fr._ as _
+import math
+import workshop._._ as _
+import workshop._.turtle as turtle
 
-def avance(distance):
-  workshop.forward(distance)
+_dir = "z_2a"
 
-def tourneDroite(angle):
-  workshop.right(angle)
+def _acConnect(d,dom,id):
+  dom.setLayout("",_.readBody(_dir))
+  turtle.draw(dom)
 
-def tourneGauche(angle):
-  workshop.left(angle)
+def main(callback,title):
+  _.main(_dir, callback, {
+      "" : _acConnect,
+    }, title )
 
-def RVB(r,v,b):
-  workshop.RGB(r,v,b)
-
-def TSL(t,s,l):
-  workshop.HSL(t,s,l)
-
-def go():
-  workshop.main(lambda: None, _.defaultTitle)
+turtle.init()

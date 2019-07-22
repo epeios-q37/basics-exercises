@@ -21,5 +21,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- """
+"""
  
+import workshop._.display as display_
+
+def erase():
+  display_.clear()
+
+def display(text):
+  display_.display(text)
+
+def eraseAndDisplay(text):
+  display_.clearAndDisplay(text)
+
+def warn(text):
+  display_.alert(text)
+
+def ask(text):
+  return display_.confirm(text)

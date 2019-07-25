@@ -1,4 +1,4 @@
-# Programming tutorial
+# Modern exercises for programming tutorials
 
 *Project currently under development. Contributions are welcome.*
 

@@ -5,9 +5,9 @@ sys.path.append(".")
 from workshop.en.z_1 import *
 
 
-handleErrors = True
+reportErrors = True
 """
-- when 'True', the validuty of the values are checked upstream.
+- when 'True', the validity of the values are checked upstream.
 - when 'False', no check; if errors, Python exceptions are displayed.
 """
 
@@ -43,7 +43,7 @@ def solveFirstDegreeInequation(a, b, ineg, c):
 
 
 def myFunction(a, b, c, operator):
-    # Only useful when 'handleErrore' at 'Tru'.
+    # Only useful when 'reportErrors' at 'False'.
     if (a == 0):
         warn("'a' must be different from 0 !")
         return
@@ -51,11 +51,11 @@ def myFunction(a, b, c, operator):
 
     erase()
     display("Solution of")
-    display("{} × x + {} {} {} :".format(a, b, operator, c))
+    display("{} × x + {} {} {}:".format(a, b, operator, c))
     if operator == '=':
         display("x = " + solveFirstDegreeEquation(a, b, c))
     else:
         display("x = " + solveFirstDegreeInequation(a, b, operator, c))
 
 
-go(myFunction, handleErrors)
+go(globals())

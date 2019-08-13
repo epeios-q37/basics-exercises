@@ -40,9 +40,6 @@ class _Core(_.Core):
         _.Core.__init__(self, dom)
 
 
-def go(function):
-    workshop.main(function, lambda dom: _Core(dom), _.defaultTitle)
+def go(globals):
+    workshop.main(lambda dom: _Core(dom), globals, _.FUNCTION_LABELS, _.DEFAULT_TITLE)
 
-
-def go(function):
-    workshop.main(function, lambda dom: _Core(dom), _.defaultTitle)

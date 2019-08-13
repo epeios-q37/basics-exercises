@@ -27,25 +27,22 @@ import math
 import workshop._._ as _
 import workshop._.turtle as turtle
 
-_dir = "z_2b"
-
-_FUNCTION = 'function'
+_FOLDER = "z_2b"
 
 def _acConnect(core,dom,id):
-  dom.setLayout("",_.readBody(_dir, core.i18n))
+  dom.setLayout("",_.readBody(_FOLDER, core.i18n))
 
 def _acDraw(core,dom):
   turtle.clear(dom)
   (polygons, segments) = dom.getContents(("polygons","segments")).values()
-  _.recall(_FUNCTION)(polygons, segments)
+  _.ufMyFunction(polygons, segments)
   turtle.draw(dom)
 
 
-def main(callback,function,title):
-  _.store(_FUNCTION,function)
-  _.main(_dir, callback, {
+def main(globals,callback, userFunctionLabels,title):
+  _.mainBase(_FOLDER, callback, {
       "" : _acConnect,
       "Draw" : _acDraw,
-    }, title )
+    }, (_.F_MY_FUNCTION,), globals, userFunctionLabels, title )
 
 turtle.init()

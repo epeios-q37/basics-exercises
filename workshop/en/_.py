@@ -25,9 +25,14 @@ SOFTWARE.
  
 import workshop._._ as _
 
+from workshop._._ import Core
 
-class Core(_.Core):
-    pass
+DEFAULT_TITLE = "Programming workshop"
 
-
-defaultTitle = _.titles["en"]
+FUNCTION_LABELS = {
+    _.F_MY_FUNCTION: "myFunction",
+    _.F_CONNECT: "connection",
+    _.F_SUBMIT: "guess",
+    _.F_RESTART: "restart",
+    _.F_HANGMAN: "Hangman"
+}

@@ -72,7 +72,7 @@ def raz(pendu):
     majMasque(pendu.motSecret, pendu.bonnesPioches)
 
 
-def connection(pendu):
+def connexion(pendu):
     raz(pendu)
 
 
@@ -99,7 +99,7 @@ def pioche(pendu, pioche):
     if pendu.nbErreurs >= len(PENDU):
         dessinePendu(P_VISAGE)
         alerte("\nPerdu !\nErreurs : " + str(pendu.nbErreurs) +
-               " ; bonne pioches : " + str(len(pendu.bonnesPioches)) +
+               " ; bonnes pioches : " + str(len(pendu.bonnesPioches)) +
                "\n\nLe mot à deviner était : '" + pendu.motSecret + "'.")
         raz(pendu)
 
@@ -107,13 +107,10 @@ def pioche(pendu, pioche):
 def redemarrer(pendu):
     if (pendu.motSecret != ""):
         alerte("Erreurs : " + str(pendu.nbErreurs) +
-               " ; bonne pioches : " + str(len(pendu.bonnesPioches)) +
+               " ; bonnes pioches : " + str(len(pendu.bonnesPioches)) +
                "\n\nLe mot à deviner était : '" + pendu.motSecret + "'.")
 
     raz(pendu)
 
 
-go(Pendu, {
-    A_CONNECTION: connection,
-    A_PIOCHE: pioche,
-    A_REDEMARRAGE: redemarrer})
+go(globals())

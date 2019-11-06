@@ -1,36 +1,40 @@
 import sys, os
 
-sys.path.append("./EduTK.python.zip")
-sys.path.append("../EduTK.python.zip")
+sys.path.append("./EduTK.zip")
+sys.path.append("../EduTK.zip")
 
-if ('EPEIOS_SRC' in os.environ):
-  sys.path.append("/cygdrive/h/hg/epeios/other/libs/edutk/PYH/edutk")
+if ('Q37_XPP' in os.environ):
+  sys.path.append(os.path.join(os.environ["HOME"],"epeios/other/libs/edutk/PYH/edutk"))
 
 import edutk as _
 
-from edutk import Atlas, Core, core, dom, readBody, recall, store
+from edutk import Atlas, Core, core, dom, recall, store
 
-# Uncomment for exceptions behaving normally again
-# instead of being displayed in a alert box.
-# _.regularException = True
-
-F_MY_FUNCTION = "MyFunction"
+F_SALUTE = "Salute"
+F_RESOLVE = "Resolve"
+F_DRAW = "Draw"
 F_CONNECT = "Connect"
 F_SUBMIT = "Submit"
 F_RESTART = "Restart"
-F_HANGMAN = "Hangman"
+C_HANGMAN = "Hangman"
 
-def _defineUserFunction(name):
-  _.defineUserFunction(globals(), "uf", name)
+_.defineUserItems(globals(), "uf", (
+  F_SALUTE,
+  F_RESOLVE,
+  F_DRAW,
+  F_CONNECT,
+  F_SUBMIT,
+  F_RESTART))
 
-_defineUserFunction(F_MY_FUNCTION)
-_defineUserFunction(F_CONNECT)
-_defineUserFunction(F_SUBMIT)
-_defineUserFunction(F_RESTART)
-_defineUserFunction(F_HANGMAN)
+_.defineUserItem(globals(), "uc", C_HANGMAN)
 
+def readBody(folder,i18n=None):
+  return _.read(os.path.join("workshop","assets",folder,"Body.html"), i18n)
 
 def mainBase(folder, callback, callbacks, ids, globals, userFunctionLabels, title):
+# Uncomment for exceptions behaving normally again,
+# instead of being displayed in a alert box.
+  #_.useRegularExceptions()
   if ids:
-    _.setUserFunctions(ids, globals, userFunctionLabels)
-  _.main(folder, callback, callbacks, title)
+    _.assignUserItems(ids, globals, userFunctionLabels)
+  _.main(os.path.join("workshop", "assets", folder, "Head.html"), callback, callbacks, title)

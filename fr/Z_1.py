@@ -42,7 +42,7 @@ def resoudreInequationPremierDegre(a, b, ineg, c):
             return "]" + sol + " ; " + "+∞["
 
 
-def maFonction(a, b, c, operator):
+def resoud(a, b, c, operator):
     # N'est utile que lorsque 'signalerErreurs' est à 'False'.
     if (a == 0):
         alerte("'a' doit être différent de 0 !")
@@ -51,7 +51,7 @@ def maFonction(a, b, c, operator):
 
     efface()
     affiche("Solution de")
-    affiche("{} × x + {} {} {} :".format(a, b, operator, c))
+    affiche("{:g} × x + {:g} {} {:g} :".format(a, b, operator, c))
     if operator == '=':
         affiche("x = " + resoudreEquationPremierDegre(a, b, c))
     else:

@@ -4,8 +4,44 @@
 # Copyright (c) 2019 Claude SIMON (https://q37.info/s/rmnmqd49)
 # See  'LICENSE' file.
 
-import starter
+import sys, os
 
-# starter.lang = "fr" # "en" (default) or "fr"
+# Default language; English.
+# Replace below "en" by "fr" to switch to French.
+lang = "en"
 
-starter.go()
+_messages = {
+    "input": {
+        "en": "Please enter the exercise ID{}: ",
+        "de": "Bitte geben Sie die Übungs-ID ein{}: ",
+        "fr": "Veuillez saisir l'identifiant de l'exercice{} : ",
+    },
+    "error": {
+        "en": " not found!",
+        "de": " nicht gefunden!",
+        "fr": " introuvable !",
+    }
+}
+    
+try:
+    input = raw_input
+except NameError:
+    pass
+
+success = False
+
+while not success:
+    exercise = input("\n" + _messages["input"][lang].format(" (a,b,c,z_1,z_2a,z_2b,z_3)"))
+
+    exerciseFilename = lang + "." + exercise[:1].upper() + exercise[1:].lower()
+
+    if True:  # Simplifies debugging when set to False
+        try:
+            __import__(exerciseFilename)
+        except ImportError:
+            print("'" + exerciseFilename + ".py'" +
+                    _messages["error"][lang])
+        else:
+            success = True
+    else:
+        __import__(exerciseFilename)

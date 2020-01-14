@@ -25,7 +25,7 @@ The *Z* series of exercises deals with more advanced programming concepts.
 
 The *Z_1* exercise deals with the solving of first-degree (in)equations. The student has to find out how to calculate the solutions of such an (in)equation, and can test if its code works properly through a convenient user interface, without having to program this interface.
 
-[![First degrees (in)equation resolution as exercise with the Atlas toolkit](https://q37.info/s/3tmm4gmh.png)](https://q37.info/s/zkpdft9p)
+[![First degrees (in)equation resolution as exercise with the Atlas toolkit](https://q37.info/s/3tmm4gmh.png?)](https://q37.info/s/zkpdft9p)
 
 The *Z_2a* and *Z_2b* exercises are example of use of the [turtle graphics](https://q37.info/s/3dwhcdfm) API. Exercise *Z_2b* is interactive.
 

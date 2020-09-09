@@ -7,7 +7,10 @@
 
 # Some modern programming exercises
 
-[![Run on Repl.it](https://repl.it/badge/github/epeios-q37/hangman-exercises)](https://q37.info/s/brjzr9fv) [![License](https://img.shields.io/pypi/l/atlastk.svg?style=plastic)](https://github.com/epeios-q37/basics-exercises/blob/master/LICENSE)
+
+[![Run on Repl.it](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/brjzr9fv)
+
+[![license: MIT](https://img.shields.io/github/license/epeios-q37/basics-exercises?color=yellow&style=for-the-badge)](https://github.com/epeios-q37/basics-exercises/blob/master/LICENSE)
 
 This project shows how modern programming exercises should be made. This exercises have a graphical user interface instead of the usual textual interface, which are less and less used, or even known, by most of the people which are mainly using smartphones. For more about the rationale behind this project, see <https://q37.info/s/cbms43s9>.
 
@@ -25,7 +28,7 @@ The *Z* series of exercises deals with more advanced programming concepts.
 
 The *Z_1* exercise deals with the solving of first-degree (in)equations. The student has to find out how to calculate the solutions of such an (in)equation, and can test if its code works properly through a convenient user interface, without having to program this interface.
 
-[![First degrees (in)equation resolution as exercise with the Atlas toolkit](https://q37.info/s/3tmm4gmh.png?)](https://q37.info/s/zkpdft9p)
+[![First degrees (in)equation resolution as exercise with the Atlas toolkit](https://q37.info/s/3tmm4gmh.png)](https://q37.info/s/zkpdft9p)
 
 The *Z_2a* and *Z_2b* exercises are example of use of the [turtle graphics](https://q37.info/s/3dwhcdfm) API. Exercise *Z_2b* is interactive.
 

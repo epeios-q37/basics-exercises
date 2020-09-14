@@ -1,11 +1,8 @@
 # Some modern programming exercises
 
-[![Run on Repl.it](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/brjzr9fv)
+[![Run on Repl.it](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/brjzr9fv) [![About online demonstrations](https://img.shields.io/badge/about-online%20demonstrations-informational)](https://q37.info/s/sssznrb4)
 
 [![license: MIT](https://img.shields.io/github/license/epeios-q37/basics-exercises?color=yellow&style=for-the-badge)](https://github.com/epeios-q37/basics-exercises/blob/master/LICENSE)
-[![Stars](https://img.shields.io/github/stars/epeios-q37/basics-exercises.svg?style=for-the-badge)](https://github.com/epeios-q37/basics-exercises/stargazers)
-[![Forks](https://img.shields.io/github/forks/epeios-q37/basics-exercises.svg?style=for-the-badge)](https://github.com/epeios-q37/basics-exercises/network/members)
-
 
 This project shows how modern programming exercises should be made. This exercises have a graphical user interface instead of the usual textual interface, which are less and less used, or even known, by most of the people which are mainly using smartphones. For more about the rationale behind this project, see <https://q37.info/s/cbms43s9>.
 
